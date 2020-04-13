@@ -50,7 +50,7 @@ namespace GradeBook.UserInterfaces
             {
                 gradeBook = new StandardGradeBook(type);
             }
-            else if (type == "raanked") //Enum.GetName(typeof(GradeBookType), 1))
+            else if (type == "ranked") //Enum.GetName(typeof(GradeBookType), 1))
             {
                 // sType = Enum.GetName(typeof(GradeBookType), 1);
                 gradeBook = new RankedGradeBook(type);
