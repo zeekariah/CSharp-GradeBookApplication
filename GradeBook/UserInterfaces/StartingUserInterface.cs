@@ -41,17 +41,18 @@ namespace GradeBook.UserInterfaces
                 return;
             }
             var name = parts[2];
+            string sType;
             
             if (name == Enum.GetName(typeof(GradeBookType), 0))
             {
+                sType = Enum.GetName(typeof(GradeBookType), 0)
                 StandardGradeBook gradeBook = new StandardGradeBook(name);
-                Console.WriteLine("Created gradebook {0}.", name);
                 GradeBookUserInterface.CommandLoop(gradeBook);
             }
             else if (name == Enum.GetName(typeof(GradeBookType), 1))
             {
+                sType = Enum.GetName(typeof(GradeBookType), 1)
                 RankedGradeBook gradeBook = new RankedGradeBook(name);
-                Console.WriteLine("Created gradebook {0}.", name);
                 GradeBookUserInterface.CommandLoop(gradeBook);
             }
             else 
@@ -59,6 +60,8 @@ namespace GradeBook.UserInterfaces
                 Console.WriteLine($"{name}  is not a supported type of gradebook, please try again");
                 return;
             }
+
+            Console.WriteLine($"Create {name} {sType} - Creates a new gradebook where 'Name' is the name of the gradebook and 'Type' is what type of grading it should use.");
 
             //BaseGradeBook gradeBook = new BaseGradeBook(name);
         }
