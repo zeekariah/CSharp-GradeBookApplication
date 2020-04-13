@@ -19,31 +19,22 @@ namespace GradeBook.GradeBooks
                 throw new InvalidOperationException("Ranked-grading requires a minimum of 5 students to work");
             }
 
-            double percent = Students.Count / 100 * 2;
-            int twentyPercent = (int)Math.Round(percent);
-            IList<double> gradeTotals = new List<double>();
-
-            //get total for all grades
-            foreach (Student student in Students)
-            {
-                gradeTotals.Add(student.AverageGrade);
-            }
-
-            gradeTotals = gradeTotals.OrderByDescending(d => d).ToList();
+            var twentyPercent = (int)Math.Ceiling(Students.Count * 0.2);
+            var grades = Students.OrderByDescending(e => e.AverageGrade).Select(e => e.AverageGrade).ToList();
             
-            if (averageGrade >= gradeTotals[twentyPercent])
+            if (averageGrade >= grades[twentyPercent])
             {
                 return 'A';
             }
-            else if (averageGrade >= gradeTotals[(twentyPercent * 2) - 1])
+            else if (averageGrade >= grades[(twentyPercent * 2) - 1])
             {
                 return 'B';
             }
-            else if (averageGrade >= gradeTotals[twentyPercent * 3])
+            else if (averageGrade >= grades[twentyPercent * 3 - 1])
             {
                 return 'C';
             }
-            else if (averageGrade >= gradeTotals[twentyPercent * 4])
+            else if (averageGrade >= grades[twentyPercent * 4 - 1])
             {
                 return 'C';
             }
