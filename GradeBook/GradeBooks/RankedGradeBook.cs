@@ -30,19 +30,19 @@ namespace GradeBook.GradeBooks
 
             gradeTotals.Sort();
 
-            if (averageGrade > gradeTotals[twentyPercent])
+            if (averageGrade >= gradeTotals[twentyPercent])
             {
                 return 'A';
             }
-            else if (averageGrade > gradeTotals[twentyPercent * 2])
+            else if (averageGrade >= gradeTotals[twentyPercent * 2])
             {
                 return 'B';
             }
-            else if (averageGrade > gradeTotals[twentyPercent * 3])
+            else if (averageGrade >= gradeTotals[twentyPercent * 3])
             {
                 return 'C';
             }
-            else if (averageGrade > gradeTotals[twentyPercent * 4])
+            else if (averageGrade >= gradeTotals[twentyPercent * 4])
             {
                 return 'C';
             }
