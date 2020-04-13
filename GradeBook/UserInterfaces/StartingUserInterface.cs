@@ -45,13 +45,13 @@ namespace GradeBook.UserInterfaces
             
             if (name == Enum.GetName(typeof(GradeBookType), 0))
             {
-                sType = Enum.GetName(typeof(GradeBookType), 0)
+                sType = Enum.GetName(typeof(GradeBookType), 0);
                 StandardGradeBook gradeBook = new StandardGradeBook(name);
                 GradeBookUserInterface.CommandLoop(gradeBook);
             }
             else if (name == Enum.GetName(typeof(GradeBookType), 1))
             {
-                sType = Enum.GetName(typeof(GradeBookType), 1)
+                sType = Enum.GetName(typeof(GradeBookType), 1);
                 RankedGradeBook gradeBook = new RankedGradeBook(name);
                 GradeBookUserInterface.CommandLoop(gradeBook);
             }
