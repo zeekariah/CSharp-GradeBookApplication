@@ -45,10 +45,14 @@ namespace GradeBook.UserInterfaces
             if (name == Enum.GetName(typeof(GradeBookType), 0))
             {
                 StandardGradeBook gradeBook = new StandardGradeBook(name);
+                Console.WriteLine("Created gradebook {0}.", name);
+                GradeBookUserInterface.CommandLoop(gradeBook);
             }
             else if (name == Enum.GetName(typeof(GradeBookType), 1))
             {
                 RankedGradeBook gradeBook = new RankedGradeBook(name);
+                Console.WriteLine("Created gradebook {0}.", name);
+                GradeBookUserInterface.CommandLoop(gradeBook);
             }
             else 
             {
@@ -57,8 +61,6 @@ namespace GradeBook.UserInterfaces
             }
 
             //BaseGradeBook gradeBook = new BaseGradeBook(name);
-            Console.WriteLine("Created gradebook {0}.", name);
-            GradeBookUserInterface.CommandLoop(gradeBook);
         }
 
         public static void LoadCommand(string command)
