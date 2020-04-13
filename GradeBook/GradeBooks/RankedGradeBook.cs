@@ -42,6 +42,10 @@ namespace GradeBook.GradeBooks
             {
                 return 'C';
             }
+            else if (averageGrade > gradeTotals[twentyPercent * 4])
+            {
+                return 'C';
+            }
 
             return 'F';
         }
