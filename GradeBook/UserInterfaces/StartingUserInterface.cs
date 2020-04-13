@@ -40,29 +40,29 @@ namespace GradeBook.UserInterfaces
                 Console.WriteLine("Command not valid, Create requires a name and type of gradebook.");
                 return;
             }
-            var name = parts[2];
-            string sType;
+
+            var name = parts[1];
+            var type = parts[2];
+
+            BaseGradeBook gradeBook;
             
-            if (name == Enum.GetName(typeof(GradeBookType), 0))
+            if (type == Enum.GetName(typeof(GradeBookType), 0))
             {
-                sType = Enum.GetName(typeof(GradeBookType), 0);
-                StandardGradeBook gradeBook = new StandardGradeBook(name);
-                GradeBookUserInterface.CommandLoop(gradeBook);
+                gradeBook = new StandardGradeBook(type);
             }
-            else if (name == Enum.GetName(typeof(GradeBookType), 1))
+            else if (type == Enum.GetName(typeof(GradeBookType), 1))
             {
-                sType = Enum.GetName(typeof(GradeBookType), 1);
-                RankedGradeBook gradeBook = new RankedGradeBook(name);
-                GradeBookUserInterface.CommandLoop(gradeBook);
+                // sType = Enum.GetName(typeof(GradeBookType), 1);
+                gradeBook = new RankedGradeBook(type);
             }
             else 
             {
-                Console.WriteLine($"{name}  is not a supported type of gradebook, please try again");
+                Console.WriteLine($"{type}  is not a supported type of gradebook, please try again");
                 return;
             }
 
-            Console.WriteLine($"Create {name} {sType} - Creates a new gradebook where 'Name' is the name of the gradebook and 'Type' is what type of grading it should use.");
-
+            Console.WriteLine("Created gradebook {0}.", name);
+            GradeBookUserInterface.CommandLoop(gradeBook);
             //BaseGradeBook gradeBook = new BaseGradeBook(name);
         }
 
