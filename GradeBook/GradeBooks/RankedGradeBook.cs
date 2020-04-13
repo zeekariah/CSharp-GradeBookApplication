@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using GradeBook.Enums;
 
 namespace GradeBook.GradeBooks
@@ -20,7 +21,7 @@ namespace GradeBook.GradeBooks
 
             double percent = Students.Count / 100 * 2;
             int twentyPercent = (int)Math.Round(percent);
-            var gradeTotals = new List<double>();
+            IList<double> gradeTotals = new List<double>();
 
             //get total for all grades
             foreach (Student student in Students)
@@ -28,8 +29,8 @@ namespace GradeBook.GradeBooks
                 gradeTotals.Add(student.AverageGrade);
             }
 
-            gradeTotals.Sort();
-
+            gradeTotals = gradeTotals.OrderByDescending(d => d).ToList();
+            
             if (averageGrade >= gradeTotals[twentyPercent])
             {
                 return 'A';
