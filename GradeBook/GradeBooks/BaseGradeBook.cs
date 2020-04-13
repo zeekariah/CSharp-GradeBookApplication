@@ -131,11 +131,11 @@ namespace GradeBook.GradeBooks
                     break;
             }
 
-            if (IsWeighted || studentType.ToString() == "Honors" || studentType.ToString() == "DualEnrolled")
+            if (IsWeighted && (studentType.ToString() == "Honors" || studentType.ToString() == "DualEnrolled"))
             {
                 returnval += 1;
             }
-            
+
             return returnval;
         }
 
