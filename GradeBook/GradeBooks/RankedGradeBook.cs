@@ -35,7 +35,7 @@ namespace GradeBook.GradeBooks
             {
                 return 'A';
             }
-            else if (averageGrade >= gradeTotals[twentyPercent * 2])
+            else if (averageGrade >= gradeTotals[twentyPercent * 2 - 1])
             {
                 return 'B';
             }
